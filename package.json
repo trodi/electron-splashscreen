@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/trodi/electron-splashscreen#readme",
   "devDependencies": {
+    "electron": "^1.7.9",
     "tslint": "^5.7.0",
     "typescript": "^2.5.3"
   }
