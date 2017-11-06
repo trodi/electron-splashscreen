@@ -4,7 +4,10 @@
   "description": "Simple splashscreen for electron applications",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prebuild": "tslint --config tslint.json *.ts",
+    "build": "tsc",
+    "preexample": "npm run build",
+    "example": "electron example.js"
   },
   "repository": {
     "type": "git",

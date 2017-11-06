@@ -21,10 +21,10 @@ const showSplash = () => {
         splashScreenTimestamp = Date.now();
     }
 };
-/** Close splashscreen. Ensure screen is visible for a min amount of time. */
-const closeSplashScreen = (main: Electron.BrowserWindow): void => {
+/** Close splashscreen / show main screen. Ensure screen is visible for a min amount of time. */
+const closeSplashScreen = (main: Electron.BrowserWindow, min: number): void => {
     if (splashScreen) {
-        const timeout = 500 - (Date.now() - splashScreenTimestamp);
+        const timeout = min - (Date.now() - splashScreenTimestamp);
         setTimeout(() => {
             if (splashScreen) {
                 splashScreen.close();
@@ -34,21 +34,50 @@ const closeSplashScreen = (main: Electron.BrowserWindow): void => {
         }, timeout);
     }
 };
+/** Splashscreen config object. */
+export interface Config {
+    /** Options for the window that is loading and tieing a splashscreen to. */
+    windowOpts: Electron.BrowserWindowConstructorOptions;
+    /** URL to the splashscreen template. */
+    templateUrl: string;
+    /**
+     * Full set of browser window options for the splashscreen. We override key attributes to
+     * make it look & feel like a splashscreen; the rest is up to you!
+     */
+    splashScreenOpts: Electron.BrowserWindowConstructorOptions;
+    /** Number of ms the window will load before splashscreen appears (default: 500ms). */
+    delay?: number;
+    /** Minimum ms the splashscreen will be visible (default: 500ms).  */
+    minVisible?: number;
+}
+/** Internal config object. */
+interface XConfig {
+    windowOpts: Electron.BrowserWindowConstructorOptions;
+    templateUrl: string;
+    splashScreenOpts: Electron.BrowserWindowConstructorOptions;
+    delay: number;
+    minVisible: number;
+}
 /**
  * Initializes a splashscreen that will show/hide smartly (and handle show/hiding of main window).
  * @param {Electron.BrowserWindow} main - the window that we are showing a splashscreen for
+ * @returns {BrowserWindow} the main browser window ready for loading
  */
-export const initSplashScreen = (main: Electron.BrowserWindow): void => {
-    main.hide(); // hide just in case you're visible
-    splashScreen = new BrowserWindow({
-        width: 425, // a bit bigger than the splash-screen.png
-        height: 325,
-        // transparent: true,
-        frame: false,
-        center: true,
-        show: false,
-    });
-    splashScreen.loadURL(`file://${__dirname}/splash-screen.html`);
+export const initSplashScreen = (config: Config): BrowserWindow => {
+    const xConfig: XConfig = {
+        delay: config.delay === undefined ? 500 : config.delay,
+        minVisible: config.minVisible === undefined ? 500 : config.minVisible,
+        windowOpts: config.windowOpts,
+        templateUrl: config.templateUrl,
+        splashScreenOpts: config.splashScreenOpts,
+    };
+    xConfig.splashScreenOpts.frame = false;
+    xConfig.splashScreenOpts.center = true;
+    xConfig.splashScreenOpts.show = false;
+    xConfig.windowOpts.show = false;
+    const window = new BrowserWindow(xConfig.windowOpts);
+    splashScreen = new BrowserWindow(xConfig.splashScreenOpts);
+    splashScreen.loadURL(`file://${xConfig.templateUrl}`);
     // Splashscreen is fully loaded and ready to view.
     splashScreen.webContents.on("did-finish-load", () => {
         splashScreenReady = true;
@@ -58,12 +87,13 @@ export const initSplashScreen = (main: Electron.BrowserWindow): void => {
     setTimeout(() => {
         slowStartup = true;
         showSplash();
-    }, 500);
-    main.webContents.on("did-start-loading", (): void => {
+    }, xConfig.delay);
+    window.webContents.on("did-start-loading", (): void => {
         isMainLoading = true;
     });
-    main.webContents.on("did-finish-load", (): void => {
+    window.webContents.on("did-finish-load", (): void => {
         isMainLoading = false;
-        closeSplashScreen(main);
+        closeSplashScreen(window, xConfig.minVisible);
     });
+    return window;
 };
