@@ -15,7 +15,7 @@ Ideally, your application loads instantaneously. However, some applications are 
 *Example of your Electron browser process.*
 ```typescript
 // import the module
-import * as Splashscreen from "electron-splashscreen";
+import * as Splashscreen from "@trodi/electron-splashscreen";
 const mainOpts: Electron.BrowserWindowConstructorOptions = ...
 // configure the splashscreen
 const config: Splashscreen.Config = {
