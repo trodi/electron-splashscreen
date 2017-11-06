@@ -3,12 +3,18 @@
   "version": "0.1.0",
   "description": "Simple splashscreen for electron applications",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "prebuild": "tslint --config tslint.json *.ts",
     "build": "tsc",
+    "prepublish": "npm run build",
     "preexample": "npm run build",
     "example": "electron example.js"
   },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/trodi/electron-splashscreen.git"
