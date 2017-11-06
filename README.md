@@ -1,5 +1,5 @@
 # electron-splashscreen
-Simple splashscreen for electron applications.
+> *Simple splashscreen for [Electron](http://electron.atom.io) applications.*
 
 Ideally, your application loads instantaneously. However, some applications are larger and/or may be running on a slower machine, causing the load to take longer. If the application is taking a bit to load, this splashscreen will appear so the user knows the application is loading, but can't interact with a partially loaded page.
 
