@@ -7,7 +7,7 @@ Ideally, your application loads instantaneously. However, some applications are 
 
 ## Usage
 * Setup an Electron application
-* `npm install electron-splashscreen`
+* `npm install @trodi/electron-splashscreen`
 * See [example](https://github.com/trodi/electron-splashscreen/blob/master/README.md#typescript-usage-javascript-would-be-similar) usage
 
 ### Typescript Usage (javascript would be similar)
