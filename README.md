@@ -5,10 +5,12 @@ Ideally, your application loads instantaneously. However, some applications are 
 
 *No external dependencies.*
 
+## Install
+```
+npm install @trodi/electron-splashscreen
+```
+
 ## Usage
-* Setup an Electron application
-* `npm install @trodi/electron-splashscreen`
-* See [example](https://github.com/trodi/electron-splashscreen/blob/master/README.md#typescript-usage-javascript-would-be-similar) usage
 
 ### Typescript Usage (javascript would be similar)
 
