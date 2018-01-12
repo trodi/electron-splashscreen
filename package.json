@@ -9,7 +9,9 @@
     "build": "tsc",
     "prepublish": "npm run build",
     "preexample": "npm run build",
-    "example": "electron example.js"
+    "example": "electron examples/example.js",
+    "preexample-dynamic": "npm run build",
+    "example-dynamic": "electron examples/example-dynamic.js"
   },
   "files": [
     "index.js",

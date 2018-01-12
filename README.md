@@ -34,7 +34,7 @@ const main: BrowserWindow = Splashscreen.initSplashScreen(config);
 main.loadURL(`file://index.html`);
 ```
 
-You can run an example via `npm run example`.
+You can run examples via `npm run example` and `npm run example-dynamic`.
 
 ## Build
 `npm run build`
