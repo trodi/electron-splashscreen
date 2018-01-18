@@ -1,7 +1,7 @@
 import { app, BrowserWindow } from "electron";
 import * as path from "path";
 import * as url from "url";
-import * as Splashscreen from "./index";
+import * as Splashscreen from "../index";
 
 let window: BrowserWindow;
 app.on("ready", () => {
@@ -14,8 +14,7 @@ app.on("ready", () => {
         windowOpts: windowOptions,
         templateUrl: path.join(__dirname, "example-splashscreen.html"),
         delay: 0, // force show immediately since example will load fast
-        // uncomment to force show splashscreeen for longer
-        // minVisible: 5000,
+        minVisible: 1500, // show for 1.5s so example is obvious
         splashScreenOpts: {
             height: 200,
             width: 200,

@@ -6,17 +6,13 @@ import { BrowserWindow } from "electron";
 
 /** When splashscreen was shown. */
 let splashScreenTimestamp: number = 0;
-/** The actual splashscreen browser window. */
-let splashScreen: Electron.BrowserWindow | null;
 /** Splashscreen is loaded and ready to show. */
 let splashScreenReady = false;
 /** Main window has been loading for a min amount of time. */
 let slowStartup = false;
-/** Main window is loading. */
-let isMainLoading = false;
 /** Show splashscreen if criteria are met. */
 const showSplash = () => {
-    if (splashScreen && isMainLoading && splashScreenReady && slowStartup) {
+    if (splashScreen && splashScreenReady && slowStartup) {
         splashScreen.show();
         splashScreenTimestamp = Date.now();
     }
@@ -58,9 +54,10 @@ interface XConfig {
     delay: number;
     minVisible: number;
 }
+/** The actual splashscreen browser window. */
+let splashScreen: Electron.BrowserWindow | null;
 /**
  * Initializes a splashscreen that will show/hide smartly (and handle show/hiding of main window).
- * @param {Electron.BrowserWindow} main - the window that we are showing a splashscreen for
  * @returns {BrowserWindow} the main browser window ready for loading
  */
 export const initSplashScreen = (config: Config): BrowserWindow => {
@@ -88,12 +85,28 @@ export const initSplashScreen = (config: Config): BrowserWindow => {
         slowStartup = true;
         showSplash();
     }, xConfig.delay);
-    window.webContents.on("did-start-loading", (): void => {
-        isMainLoading = true;
-    });
     window.webContents.on("did-finish-load", (): void => {
-        isMainLoading = false;
         closeSplashScreen(window, xConfig.minVisible);
     });
     return window;
+};
+/** Return object for `initDynamicSplashScreen()`. */
+export interface DynamicSplashScreen {
+    /** The main browser window ready for loading */
+    main: BrowserWindow;
+    /** The splashscreen browser window so you can communicate with splashscreen in more complex use cases. */
+    splashScreen: Electron.BrowserWindow;
+}
+/**
+ * Initializes a splashscreen that will show/hide smartly (and handle show/hiding of main window).
+ * Use this function if you need to interact directly with the splashscreen (e.g., you want to send
+ * IPC messages to the splashscreen).
+ * @returns {DynamicSplashScreen} the main browser window and the created splashscreen
+ */
+export const initDynamicSplashScreen = (config: Config): DynamicSplashScreen => {
+    return {
+        main: initSplashScreen(config),
+        // initSplashScreen initializes splashscreen so this is a safe cast.
+        splashScreen: splashScreen as Electron.BrowserWindow,
+    };
 };
