@@ -1,7 +1,9 @@
 # electron-splashscreen [![Build Status](https://travis-ci.org/trodi/electron-splashscreen.svg)](https://travis-ci.org/trodi/electron-splashscreen)
 > *Simple splashscreen for [Electron](http://electron.atom.io) applications.*
 
-Ideally, your application loads instantaneously. However, some applications are larger and/or may be running on a slower machine, causing the load to take longer. If the application is taking a bit to load, this splashscreen will appear so the user knows the application is loading, but can't interact with a partially loaded page.
+Ideally, your application loads instantaneously. However, some applications are larger and/or may be running on a slower machine, causing the load to take longer. If the application is taking a bit to load, `electron-splashscreen` will appear so the user knows the application is loading, but can't interact with a partially loaded application.
+
+`electron-splashscreen` is simple to incorperate, while allowing you the freedom to customize with any look, feel, and functionality.
 
 *No external dependencies.*
 
@@ -36,8 +38,14 @@ main.loadURL(`file://index.html`);
 
 You can run examples via `npm run example` and `npm run example-dynamic`.
 
+## API
+[API Documentation](./api-doc/README.md)
+
 ## Build
 `npm run build`
+
+## Publish
+`npm publish`
 
 ## License
 [MIT License](LICENSE)
