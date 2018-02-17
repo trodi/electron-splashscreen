@@ -6,8 +6,8 @@ import * as Splashscreen from "../index";
 let window: BrowserWindow;
 app.on("ready", () => {
     const windowOptions = {
-        width: 800,
-        height: 600,
+        width: 500,
+        height: 375,
         show: false,
     };
     const ret: Splashscreen.DynamicSplashScreen = Splashscreen.initDynamicSplashScreen({
@@ -15,8 +15,9 @@ app.on("ready", () => {
         templateUrl: path.join(__dirname, "example-dynamic-splashscreen.html"),
         delay: 0, // force show immediately to better illustrate example
         splashScreenOpts: {
-            height: 200,
-            width: 200,
+            height: 500,
+            width: 500,
+            backgroundColor: "white",
         },
     });
     window = ret.main;
