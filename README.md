@@ -1,3 +1,5 @@
+<img src="./icon.svg" width="200" height="200" align="right" />
+
 # electron-splashscreen [![Build Status](https://travis-ci.org/trodi/electron-splashscreen.svg)](https://travis-ci.org/trodi/electron-splashscreen)
 > *Simple splashscreen for [Electron](http://electron.atom.io) applications.*
 
@@ -6,6 +8,8 @@ Ideally, your application loads instantaneously. However, some applications are 
 `electron-splashscreen` is simple to incorperate, while allowing you the freedom to customize with any look, feel, and functionality.
 
 *No external dependencies.*
+
+<p align="center"><img src="./demo.gif" width="400"></p>
 
 ## Install
 ```
