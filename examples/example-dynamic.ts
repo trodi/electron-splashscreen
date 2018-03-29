@@ -17,7 +17,8 @@ app.on("ready", () => {
         splashScreenOpts: {
             height: 500,
             width: 500,
-            backgroundColor: "white",
+            transparent: true,
+            // backgroundColor: "white",
         },
     });
     window = ret.main;

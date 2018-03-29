@@ -4,17 +4,17 @@
     <head></head>
     <body>
         <center>
-            <img src="../icon.svg" width="200" height="200"></img>
+            <img src="../electron-splash.png" width="200" height="200"></img>
         </center>
-        <center>
+        <!-- <center>
             Loading...<span id="status"></span>
-        </center>
+        </center> -->
     </body>
     <script>
         // Listen for data from browser process and update splashscreen
-        var ipcRenderer = require("electron").ipcRenderer;
-        ipcRenderer.on("update", function(event, status) {
-            document.getElementById("status").innerText = status;
-        })
+        // var ipcRenderer = require("electron").ipcRenderer;
+        // ipcRenderer.on("update", function(event, status) {
+        //     document.getElementById("status").innerText = status;
+        // })
     </script>
 </html>
