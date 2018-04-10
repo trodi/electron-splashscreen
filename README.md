@@ -49,7 +49,9 @@ You can run examples via `npm run example` and `npm run example-dynamic`.
 `npm run build`
 
 ## Publish
-`npm publish`
+* Update version in `package.json`
+* `npm publish`
+* Commit and push changes to git
 
 ## License
 [MIT License](LICENSE)
