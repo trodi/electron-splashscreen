@@ -66,7 +66,7 @@ ___
 
 
 
-URL to the splashscreen template.
+URL to the splashscreen template. This is the path to an `HTML` or `SVG` file. If you want to simply show a `PNG`, wrap it in an `HTML` file.
 
 
 

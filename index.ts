@@ -49,7 +49,10 @@ const closeSplashScreen = (main: Electron.BrowserWindow, min: number): void => {
 export interface Config {
     /** Options for the window that is loading and having a splashscreen tied to. */
     windowOpts: Electron.BrowserWindowConstructorOptions;
-    /** URL to the splashscreen template. */
+    /**
+     * URL to the splashscreen template. This is the path to an `HTML` or `SVG` file.
+     * If you want to simply show a `PNG`, wrap it in an `HTML` file.
+     */
     templateUrl: string;
     /**
      * Full set of browser window options for the splashscreen. We override key attributes to
