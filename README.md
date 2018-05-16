@@ -29,7 +29,7 @@ const mainOpts: Electron.BrowserWindowConstructorOptions = ...
 const config: Splashscreen.Config = {
     windowOpts: mainOpts;
     templateUrl: `${__dirname}/splash-screen.html`;
-    splashScreenOptions: {
+    splashScreenOpts: {
         width: 425,
         height: 325,
     },
