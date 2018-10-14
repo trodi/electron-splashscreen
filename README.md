@@ -1,4 +1,4 @@
-<img src="./icon.svg" width="200" height="200" align="right" />
+<img src="https://raw.githubusercontent.com/trodi/electron-splashscreen/master/icon.svg?sanitize=true" width="200" height="200" align="right" />
 
 # electron-splashscreen [![Build Status](https://travis-ci.org/trodi/electron-splashscreen.svg)](https://travis-ci.org/trodi/electron-splashscreen)
 > *Simple splashscreen for [Electron](http://electron.atom.io) applications.*
@@ -9,7 +9,7 @@ Ideally, your application loads instantaneously. However, some applications are 
 
 *No external dependencies.*
 
-<p align="center"><img src="./demo.gif" width="400"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/trodi/electron-splashscreen/master/demo.gif" width="400"></p>
 
 ## Install
 ```
@@ -43,7 +43,7 @@ main.loadURL(`file://index.html`);
 You can run examples via `npm run example` and `npm run example-dynamic`.
 
 ## API
-[API Documentation](./api-doc/README.md)
+[API Documentation](https://github.com/trodi/electron-splashscreen/blob/master/api-doc/README.md)
 
 ## Build
 `npm run build`

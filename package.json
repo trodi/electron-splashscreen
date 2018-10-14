@@ -1,6 +1,6 @@
 {
   "name": "@trodi/electron-splashscreen",
-  "version": "0.3.1",
+  "version": "0.3.4",
   "description": "Simple splashscreen for electron applications",
   "main": "index.js",
   "types": "index.d.ts",
@@ -16,13 +16,9 @@
   },
   "files": [
     "index.js",
-    "index.d.ts",
-    "api-doc"
+    "index.d.ts"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/trodi/electron-splashscreen.git"
-  },
+  "repository": "trodi/electron-splashscreen",
   "keywords": [
     "electron",
     "splashscreen",
