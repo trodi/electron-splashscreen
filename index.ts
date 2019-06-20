@@ -38,7 +38,7 @@ const closeSplashScreen = (main: Electron.BrowserWindow, min: number): void => {
         const timeout = min - (Date.now() - splashScreenTimestamp);
         setTimeout(() => {
             if (splashScreen) {
-                splashScreen.close();
+                splashScreen.isDestroyed() || splashScreen.close(); // Avoid `Error: Object has been destroyed` (#19)
                 splashScreen = null;
             }
             main.show();
