@@ -18,6 +18,9 @@ app.on("ready", () => {
             height: 500,
             width: 500,
             backgroundColor: "white",
+            webPreferences: {
+                nodeIntegration: true,
+            },
         },
     });
     window = ret.main;
