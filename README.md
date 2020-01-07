@@ -5,7 +5,7 @@
 
 Ideally, your application loads instantaneously. However, some applications are larger and/or may be running on a slower machine, causing the load to take longer. If the application is taking a bit to load, `electron-splashscreen` will appear so the user knows the application is loading, but can't interact with a partially loaded application.
 
-`electron-splashscreen` is simple to incorperate, while allowing you the freedom to customize with any look, feel, and functionality.
+`electron-splashscreen` is simple to incorporate, while allowing you the freedom to customize with any look, feel, and functionality.
 
 *No external dependencies.*
 
