@@ -5,7 +5,7 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "generate-api-doc": "typedoc --readme none --mode file --theme markdown --mdHideSources --excludePrivate --out api-doc/ index.ts",
+    "generate-api-doc": "typedoc --readme none --mode file --theme markdown --hideSources --excludePrivate --out api-doc/ index.ts",
     "prebuild": "tslint --config tslint.json *.ts",
     "build": "tsc",
     "prepublish": "npm run build && npm run generate-api-doc",
@@ -34,8 +34,8 @@
   "devDependencies": {
     "electron": "^6.0.2",
     "tslint": "^5.7.0",
-    "typedoc": "^0.9.0",
-    "typedoc-plugin-markdown": "^1.0.12",
-    "typescript": "^2.5.3"
+    "typedoc": "^0.15.6",
+    "typedoc-plugin-markdown": "^2.2.16",
+    "typescript": "^3.7.4"
   }
 }

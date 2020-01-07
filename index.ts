@@ -6,27 +6,27 @@ import { BrowserWindow } from "electron";
 
 /**
  * When splashscreen was shown.
- * @private
+ * @ignore
  */
 let splashScreenTimestamp: number = 0;
 /**
  * Splashscreen is loaded and ready to show.
- * @private
+ * @ignore
  */
 let splashScreenReady = false;
 /**
  * Main window has been loading for a min amount of time.
- * @private
+ * @ignore
  */
 let slowStartup = false;
 /**
  * True when expected work is complete and we've closed splashscreen, else user prematurely closed splashscreen.
- * @private
+ * @ignore
  */
 let done = false;
 /**
  * Show splashscreen if criteria are met.
- * @private
+ * @ignore
  */
 const showSplash = () => {
     if (splashScreen && splashScreenReady && slowStartup) {
@@ -36,7 +36,7 @@ const showSplash = () => {
 };
 /**
  * Close splashscreen / show main screen. Ensure screen is visible for a min amount of time.
- * @private
+ * @ignore
  */
 const closeSplashScreen = (main: Electron.BrowserWindow, min: number): void => {
     if (splashScreen) {
@@ -73,17 +73,8 @@ export interface Config {
     closeWindow?: boolean;
 }
 /**
- * Internal config object.
- * @private
- */
-interface XConfig extends Config {
-    delay: number;
-    minVisible: number;
-    closeWindow: boolean;
-}
-/**
  * The actual splashscreen browser window.
- * @private
+ * @ignore
  */
 let splashScreen: Electron.BrowserWindow | null;
 /**
@@ -92,13 +83,13 @@ let splashScreen: Electron.BrowserWindow | null;
  * @returns {BrowserWindow} the main browser window ready for loading
  */
 export const initSplashScreen = (config: Config): BrowserWindow => {
-    const xConfig: XConfig = {
-        delay: config.delay === undefined ? 500 : config.delay,
-        minVisible: config.minVisible === undefined ? 500 : config.minVisible,
+    const xConfig: Required<Config> = {
         windowOpts: config.windowOpts,
         templateUrl: config.templateUrl,
         splashScreenOpts: config.splashScreenOpts,
-        closeWindow: config.closeWindow === undefined ? true : config.closeWindow,
+        delay: config.delay ?? 500,
+        minVisible: config.minVisible ?? 500,
+        closeWindow: config.closeWindow ?? true,
     };
     xConfig.splashScreenOpts.frame = false;
     xConfig.splashScreenOpts.center = true;
