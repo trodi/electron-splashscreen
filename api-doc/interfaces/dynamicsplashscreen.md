@@ -1,44 +1,32 @@
-[@trodi/electron-splashscreen](../README.md) > [DynamicSplashScreen](../interfaces/dynamicsplashscreen.md)
-
-
+[@trodi/electron-splashscreen - v1.0.0](../README.md) › [DynamicSplashScreen](dynamicsplashscreen.md)
 
 # Interface: DynamicSplashScreen
 
-
 Return object for `initDynamicSplashScreen()`.
 
+## Hierarchy
+
+* **DynamicSplashScreen**
+
+## Index
+
+### Properties
+
+* [main](dynamicsplashscreen.md#main)
+* [splashScreen](dynamicsplashscreen.md#splashscreen)
 
 ## Properties
-<a id="main"></a>
 
 ###  main
 
-**●  main**:  *`BrowserWindow`* 
-
-
-
+• **main**: *BrowserWindow*
 
 The main browser window ready for loading
 
-
-
-
 ___
-
-<a id="splashscreen"></a>
 
 ###  splashScreen
 
-**●  splashScreen**:  *`BrowserWindow`* 
-
-
-
+• **splashScreen**: *BrowserWindow*
 
 The splashscreen browser window so you can communicate with splashscreen in more complex use cases.
-
-
-
-
-___
-
-
