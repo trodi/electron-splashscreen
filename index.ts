@@ -20,6 +20,11 @@ let splashScreenReady = false;
  */
 let slowStartup = false;
 /**
+ * True when expected work is complete and we've closed splashscreen, else user prematurely closed splashscreen.
+ * @private
+ */
+let done = false;
+/**
  * Show splashscreen if criteria are met.
  * @private
  */
@@ -37,6 +42,7 @@ const closeSplashScreen = (main: Electron.BrowserWindow, min: number): void => {
     if (splashScreen) {
         const timeout = min - (Date.now() - splashScreenTimestamp);
         setTimeout(() => {
+            done = true;
             if (splashScreen) {
                 splashScreen.isDestroyed() || splashScreen.close(); // Avoid `Error: Object has been destroyed` (#19)
                 splashScreen = null;
@@ -63,17 +69,17 @@ export interface Config {
     delay?: number;
     /** Minimum ms the splashscreen will be visible (default: 500ms). */
     minVisible?: number;
+    /** Close window that is loading if splashscreen is closed by user (default: true). */
+    closeWindow?: boolean;
 }
 /**
  * Internal config object.
  * @private
  */
-interface XConfig {
-    windowOpts: Electron.BrowserWindowConstructorOptions;
-    templateUrl: string;
-    splashScreenOpts: Electron.BrowserWindowConstructorOptions;
+interface XConfig extends Config {
     delay: number;
     minVisible: number;
+    closeWindow: boolean;
 }
 /**
  * The actual splashscreen browser window.
@@ -92,6 +98,7 @@ export const initSplashScreen = (config: Config): BrowserWindow => {
         windowOpts: config.windowOpts,
         templateUrl: config.templateUrl,
         splashScreenOpts: config.splashScreenOpts,
+        closeWindow: config.closeWindow === undefined ? true : config.closeWindow,
     };
     xConfig.splashScreenOpts.frame = false;
     xConfig.splashScreenOpts.center = true;
@@ -100,6 +107,9 @@ export const initSplashScreen = (config: Config): BrowserWindow => {
     const window = new BrowserWindow(xConfig.windowOpts);
     splashScreen = new BrowserWindow(xConfig.splashScreenOpts);
     splashScreen.loadURL(`file://${xConfig.templateUrl}`);
+    xConfig.closeWindow && splashScreen.on("close", () => {
+        done || window.close();
+    });
     // Splashscreen is fully loaded and ready to view.
     splashScreen.webContents.on("did-finish-load", () => {
         splashScreenReady = true;
