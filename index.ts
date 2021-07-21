@@ -99,7 +99,9 @@ export const initSplashScreen = (config: Config): BrowserWindow => {
     splashScreen = new BrowserWindow(xConfig.splashScreenOpts);
     splashScreen.loadURL(`file://${xConfig.templateUrl}`);
     xConfig.closeWindow && splashScreen.on("close", () => {
-        done || window.close();
+        if (window) {
+            done || window.isDestroyed() || window.close(); // Avoid `Error: Object has been destroyed` (#25)
+        }
     });
     // Splashscreen is fully loaded and ready to view.
     splashScreen.webContents.on("did-finish-load", () => {
