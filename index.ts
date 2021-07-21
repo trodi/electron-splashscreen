@@ -79,7 +79,7 @@ export interface Config {
 let splashScreen: Electron.BrowserWindow | null;
 /**
  * Initializes a splashscreen that will show/hide smartly (and handle show/hiding of main window).
- * @param config - Configures splashscren
+ * @param config - Configures splashscreen
  * @returns {BrowserWindow} the main browser window ready for loading
  */
 export const initSplashScreen = (config: Config): BrowserWindow => {
@@ -127,7 +127,7 @@ export interface DynamicSplashScreen {
  * Initializes a splashscreen that will show/hide smartly (and handle show/hiding of main window).
  * Use this function if you need to send/receive info to the splashscreen (e.g., you want to send
  * IPC messages to the splashscreen to inform the user of the app's loading state).
- * @param config - Configures splashscren
+ * @param config - Configures splashscreen
  * @returns {DynamicSplashScreen} the main browser window and the created splashscreen
  */
 export const initDynamicSplashScreen = (config: Config): DynamicSplashScreen => {
