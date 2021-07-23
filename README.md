@@ -55,7 +55,6 @@ You can run examples via `npm run example` and `npm run example-dynamic`.
 
 ## Publish
 
-* `npm run generate-api-doc` (update docs)
 * `npm version <patch|minor|major>`
 * `npm publish`
 * Commit and push changes to git
