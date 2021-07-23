@@ -1,6 +1,6 @@
 {
   "name": "@trodi/electron-splashscreen",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Simple splashscreen for electron applications",
   "main": "index.js",
   "types": "index.d.ts",
