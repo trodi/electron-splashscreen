@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/trodi/electron-splashscreen#readme",
   "devDependencies": {
-    "electron": "^6.0.2",
+    "electron": "^11.0.1",
     "tslint": "^5.7.0",
     "typedoc": "^0.15.6",
     "typedoc-plugin-markdown": "^2.2.16",
