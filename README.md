@@ -1,8 +1,14 @@
-<img src="https://raw.githubusercontent.com/trodi/electron-splashscreen/master/icon.svg?sanitize=true" width="200" height="200" align="right" />
+<p align="center">
+    <img
+        src="https://github.com/trodi/electron-splashscreen/raw/master/icon.svg"
+        width="200"
+        height="200"
+        alt="electron-splashscreen logo" />
+</p>
 
 # electron-splashscreen
 
-> *Simple splashscreen for [Electron](http://electron.atom.io) applications.*
+> *Simple splashscreen for [Electron](https://www.electronjs.org/) applications.*
 
 Ideally, your application loads instantaneously. However, some applications are larger and/or may be running on a slower machine, causing the load to take longer. If the application is taking a bit to load, `electron-splashscreen` will appear so the user knows the application is loading, but can't interact with a partially loaded application.
 
@@ -10,7 +16,7 @@ Ideally, your application loads instantaneously. However, some applications are 
 
 *No external dependencies.*
 
-<p align="center"><img src="https://raw.githubusercontent.com/trodi/electron-splashscreen/master/demo.gif" width="400"></p>
+<p align="center"><img src="https://github.com/trodi/electron-splashscreen/raw/master/demo.gif" width="400"></p>
 
 ## Install
 
