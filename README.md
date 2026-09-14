@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/trodi/electron-splashscreen/master/icon.svg?sanitize=true" width="200" height="200" align="right" />
 
-# electron-splashscreen [![Build Status](https://travis-ci.org/trodi/electron-splashscreen.svg)](https://travis-ci.org/trodi/electron-splashscreen)
+# electron-splashscreen
 
 > *Simple splashscreen for [Electron](http://electron.atom.io) applications.*
 
