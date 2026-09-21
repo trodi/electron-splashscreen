@@ -1,6 +1,6 @@
-[@trodi/electron-splashscreen - v1.0.0](README.md)
+[@trodi/electron-splashscreen - v1.0.3](README.md)
 
-# @trodi/electron-splashscreen - v1.0.0
+# @trodi/electron-splashscreen - v1.0.3
 
 ## Index
 
@@ -28,7 +28,7 @@ IPC messages to the splashscreen to inform the user of the app's loading state).
 
 Name | Type | Description |
 ------ | ------ | ------ |
-`config` | [Config](interfaces/config.md) | Configures splashscren |
+`config` | [Config](interfaces/config.md) | Configures splashscreen |
 
 **Returns:** *[DynamicSplashScreen](interfaces/dynamicsplashscreen.md)*
 
@@ -46,7 +46,7 @@ Initializes a splashscreen that will show/hide smartly (and handle show/hiding o
 
 Name | Type | Description |
 ------ | ------ | ------ |
-`config` | [Config](interfaces/config.md) | Configures splashscren |
+`config` | [Config](interfaces/config.md) | Configures splashscreen |
 
 **Returns:** *BrowserWindow*
 

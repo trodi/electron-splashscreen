@@ -1,4 +1,4 @@
-[@trodi/electron-splashscreen - v1.0.0](../README.md) › [Config](config.md)
+[@trodi/electron-splashscreen - v1.0.3](../README.md) › [Config](config.md)
 
 # Interface: Config
 
