@@ -8,7 +8,7 @@
     "generate-api-doc": "typedoc --readme none --mode file --theme markdown --hideSources --excludePrivate --out api-doc/ index.ts",
     "prebuild": "tslint --config tslint.json *.ts",
     "build": "tsc",
-    "prepublish": "npm run build && npm run generate-api-doc",
+    "prepublishOnly": "npm run build && npm run generate-api-doc",
     "preexample": "npm run build",
     "example": "electron examples/example.js",
     "preexample-dynamic": "npm run build",
